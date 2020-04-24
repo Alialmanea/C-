@@ -8,8 +8,11 @@ class Program
     {
         String ad = "ahmet";
         for (int i = 0; i < ad.Length; i++)
-            Console.WriteLine(ad.Substring(4-i,1+i));
-
+            Console.WriteLine(ad.Substring(4 - i, 1 + i)); /* t
+                                                              et
+                                                              met
+                                                              hmet
+                                                              ahmet */
         Console.ReadLine();
 
     }
