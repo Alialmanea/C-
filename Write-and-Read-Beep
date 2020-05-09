@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+namespace ConsoleApp13
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int ferquncy = 0;
+            int proid;
+            
+            StreamWriter yaz = new StreamWriter("song.txt");
+
+            do
+            {
+                Console.Write("Enter you ferquncy : ");
+                ferquncy = Convert.ToInt32(Console.ReadLine());
+                if (ferquncy == -1)
+                    break;
+
+                Console.Write("Enrter the durction by millsecond : ");
+                proid = Convert.ToInt32(Console.ReadLine());
+
+
+                Console.Beep(ferquncy, proid);
+
+                yaz.WriteLine(ferquncy + " , " + proid);
+
+
+            } while (ferquncy != -1);
+
+            yaz.Flush();
+            yaz.Close();
+
+            StreamReader oku = new StreamReader("song.txt");
+
+            string satir = oku.ReadLine();
+            while (satir != null)
+            {
+
+                Console.WriteLine(satir);
+                string[] value = satir.Split(',');
+                ferquncy = Convert.ToInt32(value[0]);
+                proid = Convert.ToInt32(value[1]);
+                Console.Beep(ferquncy, proid);
+                satir = oku.ReadLine();
+            }
+            
+            Console.ReadLine();
+        }
+    }
+}
