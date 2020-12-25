@@ -4,7 +4,7 @@ using System;
   
 class MainClass { 
       
-    static int secondLongestWordLength(string st){ 
+    static int secondLongestWordLength(string str){ 
         int n = str.Length; 
         int res = 0, curr_len = 0; 
         for (int i = 0; i < n; i++) { 
